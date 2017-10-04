@@ -73,17 +73,17 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
     External (_SB_.PCI0.EPON, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.AINT, MethodObj)    // 2 Arguments
-    External (_SB_.PCI0.GFX0.CBLV, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.GFX0.DD1F, UnknownObj)
-    External (_SB_.PCI0.GFX0.DD1F._BCL, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.IUEH, MethodObj)    // 1 Arguments
-    External (_SB_.PCI0.GFX0.STAT, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.TCHE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
+    External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.IGPU.DD1F, UnknownObj)
+    External (_SB_.PCI0.IGPU.DD1F._BCL, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.IUEH, MethodObj)    // 1 Arguments
+    External (_SB_.PCI0.IGPU.STAT, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.LPCB.H_EC.CHRG, UnknownObj)
     External (_SB_.PCI0.LPCB.H_EC.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
@@ -2500,7 +2500,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Name (_ADR, 0x00030000)  // _ADR: Address
                 }
 
-                Device (GFX0)
+                Device (IGPU)
                 {
                     Name (_ADR, 0x00020000)  // _ADR: Address
                 }
@@ -5041,7 +5041,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     {
         If (LEqual (And (DIDX, 0x0F00), 0x0400))
         {
-            Notify (\_SB.PCI0.GFX0.DD1F, Arg0)
+            Notify (\_SB.PCI0.IGPU.DD1F, Arg0)
         }
     }
 
@@ -9737,12 +9737,12 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             {
                 If (LEqual (LIDS, Zero))
                 {
-                    Store (0x80000000, \_SB.PCI0.GFX0.CLID)
+                    Store (0x80000000, \_SB.PCI0.IGPU.CLID)
                 }
 
                 If (LEqual (LIDS, One))
                 {
-                    Store (0x80000003, \_SB.PCI0.GFX0.CLID)
+                    Store (0x80000003, \_SB.PCI0.IGPU.CLID)
                 }
             }
 
@@ -9780,25 +9780,25 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             ADBG ("ISCT debug")
             ADBG (Concatenate ("WKRS = ", ToHexString (\_SB.IAOE.WKRS)))
             ADBG (Concatenate ("IBT1 = ", ToHexString (\_SB.IAOE.IBT1)))
-            If (And (\_SB.PCI0.GFX0.TCHE, 0x0100))
+            If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
             {
                 If (LEqual (\_SB.IAOE.ITMR, One))
                 {
                     If (LAnd (And (\_SB.IAOE.IBT1, One), LOr (And (\_SB.IAOE.WKRS, 0x02), And (\_SB.IAOE.WKRS, 0x10))))
                     {
-                        Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                        Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                         ADBG ("Turning off Gfx")
                     }
                     ElseIf (IGDS)
                     {
                         If (LEqual (LIDS, Zero))
                         {
-                            Store (0x80000000, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000000, \_SB.PCI0.IGPU.CLID)
                         }
 
                         If (LEqual (LIDS, One))
                         {
-                            Store (0x80000003, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000003, \_SB.PCI0.IGPU.CLID)
                         }
                     }
                 }
@@ -9806,11 +9806,11 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 {
                     If (LAnd (And (\_SB.IAOE.OAOS, One), LOr (LOr (LEqual (\_SB.PCI0.LPCB.EC.WAKR, 0x0A), LEqual (\_SB.PCI0.LPCB.EC.WAKR, 0x0C)), And (\_SB.IAOE.WKRS, 0x10))))
                     {
-                        Store (Or (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.GFX0.STAT)
+                        Store (Or (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), One), \_SB.PCI0.IGPU.STAT)
                     }
                     Else
                     {
-                        Store (And (\_SB.PCI0.GFX0.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.GFX0.STAT)
+                        Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFFFFFFFFFC), \_SB.PCI0.IGPU.STAT)
                     }
                 }
             }
@@ -9843,12 +9843,12 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
         {
             If (And (GBSX, 0x40))
             {
-                \_SB.PCI0.GFX0.IUEH (0x06)
+                \_SB.PCI0.IGPU.IUEH (0x06)
             }
 
             If (And (GBSX, 0x80))
             {
-                \_SB.PCI0.GFX0.IUEH (0x07)
+                \_SB.PCI0.IGPU.IUEH (0x07)
             }
 
             If (LAnd (\_PR.DTSE, LGreater (TCNT, One)))
@@ -9868,12 +9868,12 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         If (LEqual (LIDS, Zero))
                         {
-                            Store (0x80000000, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000000, \_SB.PCI0.IGPU.CLID)
                         }
 
                         If (LEqual (LIDS, One))
                         {
-                            Store (0x80000003, \_SB.PCI0.GFX0.CLID)
+                            Store (0x80000003, \_SB.PCI0.IGPU.CLID)
                         }
                     }
                 }
@@ -11019,9 +11019,9 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
         Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -11036,7 +11036,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             {
                 ADBG ("Rotation Lock")
                 Sleep (0x03E8)
-                \_SB.PCI0.GFX0.IUEH (0x04)
+                \_SB.PCI0.IGPU.IUEH (0x04)
             }
         }
     }
@@ -11325,7 +11325,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
         }
     }
 
-    Scope (_SB.PCI0.GFX0)
+    Scope (_SB.PCI0.IGPU)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -12056,7 +12056,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -12068,7 +12068,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     0xFFFFFFFF
                 }, 
 
@@ -12160,7 +12160,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -12995,7 +12995,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -17784,7 +17784,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Store (One, LIDS)
                 }
 
-                Store (LIDS, ^^PCI0.GFX0.CLID)
+                Store (LIDS, ^^PCI0.IGPU.CLID)
                 Store (LIDS, Local0)
                 If (LEqual (Local0, One))
                 {
@@ -18238,24 +18238,24 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Else
                     {
                         Store (BRTL, Local0)
-                        Store (^^^GFX0.CBLV, BRTL)
+                        Store (^^^IGPU.CBLV, BRTL)
                         And (Add (BRTL, One), 0xFE, BRTL)
                         If (LLessEqual (BRTL, 0x5A))
                         {
                             Add (BRTL, 0x0A, BRTL)
                         }
 
-                        ^^^GFX0.AINT (One, BRTL)
+                        ^^^IGPU.AINT (One, BRTL)
                     }
                 }
 
                 Store (Zero, Local0)
                 If (LGreaterEqual (OSYS, 0x07DD))
                 {
-                    Notify (^^^GFX0.DD1F._BCL (), 0x86)
+                    Notify (^^^IGPU.DD1F._BCL (), 0x86)
                 }
 
-                Store (^^^GFX0.CBLV, Local0)
+                Store (^^^IGPU.CBLV, Local0)
                 And (Local0, 0xFF, Local0)
                 If (LAnd (LGreaterEqual (Local0, Zero), LLess (Local0, 0x11)))
                 {
@@ -18376,24 +18376,24 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Else
                     {
                         Store (BRTL, Local0)
-                        Store (^^^GFX0.CBLV, BRTL)
+                        Store (^^^IGPU.CBLV, BRTL)
                         And (Add (BRTL, One), 0xFE, BRTL)
                         If (LGreaterEqual (BRTL, 0x0A))
                         {
                             Subtract (BRTL, 0x0A, BRTL)
                         }
 
-                        ^^^GFX0.AINT (One, BRTL)
+                        ^^^IGPU.AINT (One, BRTL)
                     }
                 }
 
                 Store (Zero, Local0)
                 If (LGreaterEqual (OSYS, 0x07DD))
                 {
-                    Notify (^^^GFX0.DD1F._BCL (), 0x87)
+                    Notify (^^^IGPU.DD1F._BCL (), 0x87)
                 }
 
-                Store (^^^GFX0.CBLV, Local0)
+                Store (^^^IGPU.CBLV, Local0)
                 And (Local0, 0xFF, Local0)
                 If (LAnd (LGreaterEqual (Local0, Zero), LLess (Local0, 0x11)))
                 {
@@ -18955,21 +18955,21 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
             Method (_QC4, 0, NotSerialized)  // _Qxx: EC Query
             {
-                Store (^^^GFX0.CBLV, ICBL)
-                Notify (^^^GFX0.DD1F, 0x88)
+                Store (^^^IGPU.CBLV, ICBL)
+                Notify (^^^IGPU.DD1F, 0x88)
             }
 
             Method (_QC5, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0xC5, P80H)
                 Store (0xA0, BRTL)
-                Notify (^^^GFX0.DD1F, 0x85)
+                Notify (^^^IGPU.DD1F, 0x85)
                 Sleep (One)
-                Notify (^^^GFX0.DD1F, 0x85)
+                Notify (^^^IGPU.DD1F, 0x85)
                 Sleep (One)
-                Notify (^^^GFX0.DD1F, 0x85)
+                Notify (^^^IGPU.DD1F, 0x85)
                 Sleep (One)
-                Notify (^^^GFX0.DD1F, 0x85)
+                Notify (^^^IGPU.DD1F, 0x85)
                 Sleep (One)
             }
 
@@ -19491,7 +19491,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_UID, One)  // _UID: Unique ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Store (0x03, ^^^GFX0.CLID)
+                Store (0x03, ^^^IGPU.CLID)
                 Return (Zero)
             }
 
