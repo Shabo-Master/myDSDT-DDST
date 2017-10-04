@@ -1092,9 +1092,8 @@ DefinitionBlock ("", "SSDT", 1, "OptRef", "OptTabl", 0x00001000)
         Method (GC6O, 0, Serialized)
         {
             Store ("<<< GC6O >>>", Debug)
-            RPG0 ()
-            Zero
-            CLPG ()
+            RPG0 (CLPG ())
+            //Zero
             Store (Zero, \_SB.PCI0.PEG0.LNKD)
             \_SB.PCI0.PEG0.PEGP.SGPO (0x22, One)
             While (LNotEqual (\_SB.PCI0.PEG0.PEGP.SGPI (0x26), One))
