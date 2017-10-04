@@ -10275,7 +10275,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Store (0x07D9, OSYS)
             If (CondRefOf (\_OSI, Local0))
             {
-                If (_OSI ("Windows 2009"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2009")))
                 {
                     Store (0x07D9, OSYS)
                 }
@@ -18023,19 +18023,19 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 Offset (0x9D), 
                 SBF0,   8, 
                 Offset (0xA0), 
-                CAP0,   16, 
+                DAP0,8,DAP1,8, 
                 RCP0,   16, 
-                VOT0,   16, 
-                CRT0,   16, 
+                WOT0,8,WOT1,8, 
+                DRT0,8,DRT1,8, 
                 BTM0,   16, 
                 BST0,   16, 
                 BRC0,   16, 
-                FCP0,   16, 
-                DCP0,   16, 
-                DVT0,   16, 
+                GCP0,8,GCP1,8, 
+                ECP0,8,ECP1,8, 
+                EVT0,8,EVT1,8, 
                 MER0,   16, 
                 MFD0,   16, 
-                BSN0,   16, 
+                CSN0,8,CSN1,8, 
                 MAS0,   16, 
                 Offset (0xC3), 
                 BCS0,   8, 
@@ -19255,12 +19255,12 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 If (ECOK ())
                 {
                     Acquire (^^EC.MUTX, 0xFFFF)
-                    Store (^^EC.DCP0, Index (PAK0, One))
-                    Store (^^EC.FCP0, Local0)
+                    Store (B1B2(^^EC.ECP0,^^EC.ECP1), Index (PAK0, One))
+                    Store (B1B2(^^EC.GCP0,^^EC.GCP1), Local0)
                     Store (Local0, Index (PAK0, 0x02))
-                    Store (^^EC.DVT0, Index (PAK0, 0x04))
+                    Store (B1B2(^^EC.EVT0,^^EC.EVT1), Index (PAK0, 0x04))
                     Store (^^EC.DNN0, Local1)
-                    Store (^^EC.BSN0, Local2)
+                    Store (B1B2(^^EC.CSN0,^^EC.CSN1), Local2)
                     Store (^^EC.BCN0, Local3)
                     Store (^^EC.MNN0, Local4)
                     Release (^^EC.MUTX)
@@ -19444,11 +19444,11 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Add (Local0, Local1, Local0)
                     Store (Local0, Index (BFB0, Zero))
                     Acquire (^^EC.MUTX, 0xFFFF)
-                    Store (^^EC.CAP0, Index (BFB0, 0x02))
-                    Store (^^EC.VOT0, Index (BFB0, 0x03))
+                    Store (B1B2(^^EC.DAP0,^^EC.DAP1), Index (BFB0, 0x02))
+                    Store (B1B2(^^EC.WOT0,^^EC.WOT1), Index (BFB0, 0x03))
                     Release (^^EC.MUTX)
                     Acquire (^^EC.MUTX, 0xFFFF)
-                    Store (^^EC.CRT0, Local0)
+                    Store (B1B2(^^EC.DRT0,^^EC.DRT1), Local0)
                     Release (^^EC.MUTX)
                     If (LEqual (Local0, Zero))
                     {
@@ -19615,5 +19615,6 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Return (Zero)
         }
     }
+    Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }
 }
 
