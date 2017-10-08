@@ -315,93 +315,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             Zero
         })
         Name (OPTS, Zero)
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            While (One)
-            {
-                Store (ToInteger (Arg0), _T_0)
-                If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
-                {
-                    While (One)
-                    {
-                        Store (ToInteger (Arg2), _T_1)
-                        If (LEqual (_T_1, Zero))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                Store (One, OPTS)
-                                If (LTRS)
-                                {
-                                    Or (OPTS, 0x40, OPTS)
-                                }
-
-                                If (OBFS)
-                                {
-                                    Or (OPTS, 0x10, OPTS)
-                                }
-
-                                Return (OPTS)
-                            }
-                            Else
-                            {
-                                Return (Zero)
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x04))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (OBFS)
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                                Else
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x06))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (LTRS)
-                                {
-                                    Store (And (ShiftRight (SMSL, 0x0A), 0x07), Index (LTRV, Zero))
-                                    Store (And (SMSL, 0x03FF), Index (LTRV, One))
-                                    Store (And (ShiftRight (SNSL, 0x0A), 0x07), Index (LTRV, 0x02))
-                                    Store (And (SNSL, 0x03FF), Index (LTRV, 0x03))
-                                    Return (LTRV)
-                                }
-                                Else
-                                {
-                                    Return (Zero)
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-
-                Break
-            }
-
-            Return (Buffer (One)
-            {
-                 0x00                                           
-            })
-        }
+        
 
         PowerResource (PG00, 0x00, 0x0000)
         {
@@ -569,93 +483,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             Zero
         })
         Name (OPTS, Zero)
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            While (One)
-            {
-                Store (ToInteger (Arg0), _T_0)
-                If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
-                {
-                    While (One)
-                    {
-                        Store (ToInteger (Arg2), _T_1)
-                        If (LEqual (_T_1, Zero))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                Store (One, OPTS)
-                                If (LTRS)
-                                {
-                                    Or (OPTS, 0x40, OPTS)
-                                }
-
-                                If (OBFS)
-                                {
-                                    Or (OPTS, 0x10, OPTS)
-                                }
-
-                                Return (OPTS)
-                            }
-                            Else
-                            {
-                                Return (Zero)
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x04))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (OBFS)
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                                Else
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x06))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (LTRS)
-                                {
-                                    Store (And (ShiftRight (SMSL, 0x0A), 0x07), Index (LTRV, Zero))
-                                    Store (And (SMSL, 0x03FF), Index (LTRV, One))
-                                    Store (And (ShiftRight (SNSL, 0x0A), 0x07), Index (LTRV, 0x02))
-                                    Store (And (SNSL, 0x03FF), Index (LTRV, 0x03))
-                                    Return (LTRV)
-                                }
-                                Else
-                                {
-                                    Return (Zero)
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-
-                Break
-            }
-
-            Return (Buffer (One)
-            {
-                 0x00                                           
-            })
-        }
+        
 
         Method (_S0W, 0, NotSerialized)  // _S0W: S0 Device Wake State
         {
@@ -729,93 +557,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             Zero
         })
         Name (OPTS, Zero)
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            While (One)
-            {
-                Store (ToInteger (Arg0), _T_0)
-                If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
-                {
-                    While (One)
-                    {
-                        Store (ToInteger (Arg2), _T_1)
-                        If (LEqual (_T_1, Zero))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                Store (One, OPTS)
-                                If (LTRS)
-                                {
-                                    Or (OPTS, 0x40, OPTS)
-                                }
-
-                                If (OBFS)
-                                {
-                                    Or (OPTS, 0x10, OPTS)
-                                }
-
-                                Return (OPTS)
-                            }
-                            Else
-                            {
-                                Return (Zero)
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x04))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (OBFS)
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                                Else
-                                {
-                                    Return (Buffer (0x10)
-                                    {
-                                        /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                        /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
-                                    })
-                                }
-                            }
-                        }
-                        ElseIf (LEqual (_T_1, 0x06))
-                        {
-                            If (LEqual (Arg1, 0x02))
-                            {
-                                If (LTRS)
-                                {
-                                    Store (And (ShiftRight (SMSL, 0x0A), 0x07), Index (LTRV, Zero))
-                                    Store (And (SMSL, 0x03FF), Index (LTRV, One))
-                                    Store (And (ShiftRight (SNSL, 0x0A), 0x07), Index (LTRV, 0x02))
-                                    Store (And (SNSL, 0x03FF), Index (LTRV, 0x03))
-                                    Return (LTRV)
-                                }
-                                Else
-                                {
-                                    Return (Zero)
-                                }
-                            }
-                        }
-
-                        Break
-                    }
-                }
-
-                Break
-            }
-
-            Return (Buffer (One)
-            {
-                 0x00                                           
-            })
-        }
+        
 
         PowerResource (PG02, 0x00, 0x0000)
         {
@@ -3518,14 +3260,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
             }
         }
 
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-        {
-            Name (DRET, Buffer (0x04)
-            {
-                 0x00                                           
-            })
-            Return (DRET)
-        }
+        
     }
 
     Scope (\_SB.PCI0)
