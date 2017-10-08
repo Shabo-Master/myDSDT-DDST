@@ -2784,7 +2784,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -3034,7 +3034,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -3284,7 +3284,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -3539,7 +3539,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -3789,7 +3789,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -4039,7 +4039,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -4289,7 +4289,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -4539,7 +4539,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 })
                 Name (OPTS, Zero)
                 Name (RPAV, Zero)
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -6308,7 +6308,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x04)  // _ADR: Address
                         Alias (SBV1, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -6361,7 +6361,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x05)  // _ADR: Address
                         Alias (SBV2, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -6414,7 +6414,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x06)  // _ADR: Address
                         Alias (SBV1, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -6467,7 +6467,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x07)  // _ADR: Address
                         Alias (SBV2, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -6634,7 +6634,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x02)  // _ADR: Address
                         Alias (SBV1, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -6687,7 +6687,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     {
                         Name (_ADR, 0x03)  // _ADR: Address
                         Alias (SBV2, SDGV)
-                        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                         {
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, ToUUID ("a5fc708f-8775-4ba6-bd0c-ba90a1ec72f8")))
@@ -7951,7 +7951,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8063,7 +8063,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8141,7 +8141,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8240,7 +8240,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8323,7 +8323,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8407,7 +8407,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8484,7 +8484,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8568,7 +8568,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
             Name (_CID, "PNP0C50")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_S0W, 0x04)  // _S0W: S0 Device Wake State
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8664,7 +8664,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 }
             }
 
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -8813,7 +8813,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 Return (Zero)
             }
 
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (LEqual (Arg0, ToUUID ("3cdff6f7-4267-4555-ad05-b30a3d8938de") /* HID I2C Device */))
                 {
@@ -11349,7 +11349,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
         Device (HECI)
         {
             Name (_ADR, 0x00160000)  // _ADR: Address
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
@@ -11409,7 +11409,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.HDEF)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("c5c5d98d-360e-43af-b7c1-3ede8f669ad3")))
@@ -13097,7 +13097,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                 Return (Zero)
             }
 
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 ADBG (Concatenate ("PEPY = ", ToHexString (PEPY)))
@@ -14496,7 +14496,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     {
         Scope (_SB.PCI0.RP01.PXSX)
         {
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -14748,7 +14748,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP02.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -14999,7 +14999,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP03.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -15250,7 +15250,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP04.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -15503,7 +15503,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     {
         Scope (_SB.PCI0.RP05.PXSX)
         {
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -15755,7 +15755,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP06.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -16006,7 +16006,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP07.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -16257,7 +16257,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0.RP08.PXSX)
     {
-        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
         {
             Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
@@ -16585,7 +16585,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Return (Zero)
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     If (LEqual (Arg0, ToUUID ("f5cf0ff7-5d60-4842-82c0-fa1a61d873f2")))
