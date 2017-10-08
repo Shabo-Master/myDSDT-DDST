@@ -5009,6 +5009,10 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
                     Name (_ADR, 0xFF)  // _ADR: Address
                 }
             }
+            Device (IMEI)
+            {
+                Name (_ADR, 0x00160000)
+            }
         }
     }
 
@@ -11361,65 +11365,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
     Scope (_SB.PCI0)
     {
-        Device (HECI)
-        {
-            Name (_ADR, 0x00160000)  // _ADR: Address
-            Method (XDSM, 4, Serialized)  // _DSM: Device-Specific Method
-            {
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-                If (LEqual (Arg0, ToUUID ("1730e71d-e5dd-4a34-be57-4d76b6a2fe37")))
-                {
-                    If (LEqual (Arg2, Zero))
-                    {
-                        If (LEqual (Arg1, Zero))
-                        {
-                            Return (Buffer (One)
-                            {
-                                 0x03                                           
-                            })
-                        }
-                        Else
-                        {
-                            Return (Zero)
-                        }
-                    }
-
-                    If (LEqual (Arg2, One))
-                    {
-                        While (One)
-                        {
-                            Store (DerefOf (Index (Arg3, Zero)), _T_0)
-                            If (LEqual (_T_0, Zero))
-                            {
-                                P8XH (Zero, 0x5C)
-                            }
-                            ElseIf (LEqual (_T_0, One))
-                            {
-                                If (CondRefOf (\_SB.SLPB))
-                                {
-                                    Notify (SLPB, 0x80)
-                                    P8XH (Zero, 0x5D)
-                                }
-                            }
-                            ElseIf (LEqual (_T_0, 0x02)) {}
-                            ElseIf (LEqual (_T_0, 0x03)) {}
-                            Break
-                        }
-
-                        Return (Zero)
-                    }
-                    Else
-                    {
-                        Return (Zero)
-                    }
-                }
-
-                Return (Buffer (One)
-                {
-                     0x00                                           
-                })
-            }
-        }
+        
     }
 
     Scope (_SB.PCI0.HDEF)
