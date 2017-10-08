@@ -430,6 +430,17 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
         {
             Return (GPRW (0x09, 0x04))
         }
+        
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTRA, LTRS)
+            Store (OBFA, OBFS)
+            //added to turn nvidia/radeon off
+            External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
+            _OFF()
+        }
+
+        
     }
 
     Scope (\_SB.PCI0.PEG1)
@@ -504,6 +515,13 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
         {
             Return (GPRW (0x09, 0x04))
         }
+        
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTRA, LTRS)
+            Store (OBFA, OBFS)
+        }
+
     }
 
     Scope (\_SB.PCI0.PEG2)
@@ -608,6 +626,13 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
         {
             Return (GPRW (0x09, 0x04))
         }
+        
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (LTRA, LTRS)
+            Store (OBFA, OBFS)
+        }
+
     }
 
     Scope (\_SB.PCI0.B0D3)
