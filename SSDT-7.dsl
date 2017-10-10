@@ -48,7 +48,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.B0D3, DeviceObj)
+    External (_SB_.PCI0.HDAU, DeviceObj)
     External (_SB_.PCI0.IGPU, DeviceObj)
     External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.IGPU.SNXD, MethodObj)    // 1 Arguments
@@ -635,7 +635,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
 
     }
 
-    Scope (\_SB.PCI0.B0D3)
+    Scope (\_SB.PCI0.HDAU)
     {
         Name (BARA, 0x80000000)
         Name (BBAR, Zero)
@@ -2997,12 +2997,12 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LEqual (PARM, One))
                     {
                         Or (\_SB.PCI0.AUDE, 0x20, \_SB.PCI0.AUDE)
-                        \_SB.PCI0.B0D3.ABWA (One)
-                        \_SB.PCI0.B0D3.ARST ()
-                        \_SB.PCI0.B0D3.ASTR ()
-                        \_SB.PCI0.B0D3.AINI ()
-                        \_SB.PCI0.B0D3.CXDC ()
-                        \_SB.PCI0.B0D3.ABWA (Zero)
+                        \_SB.PCI0.HDAU.ABWA (One)
+                        \_SB.PCI0.HDAU.ARST ()
+                        \_SB.PCI0.HDAU.ASTR ()
+                        \_SB.PCI0.HDAU.AINI ()
+                        \_SB.PCI0.HDAU.CXDC ()
+                        \_SB.PCI0.HDAU.ABWA (Zero)
                         Notify (\_SB.PCI0, Zero)
                     }
 
@@ -3020,7 +3020,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
                 If (LEqual (GESF, 0x16))
                 {
                     And (PARM, 0x03, Local0)
-                    \_SB.PCI0.B0D3.DCCC (Local0)
+                    \_SB.PCI0.HDAU.DCCC (Local0)
                     Store (Zero, GESF)
                     Return (SUCC)
                 }

@@ -71,8 +71,8 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     External (_SB_.IFFS.FFSS, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCCD, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCCD.PENB, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
-    External (_SB_.PCI0.B0D3.BARA, IntObj)
+    External (_SB_.PCI0.HDAU.ABAR, FieldUnitObj)
+    External (_SB_.PCI0.HDAU.BARA, IntObj)
     External (_SB_.PCI0.EPON, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
@@ -2530,14 +2530,31 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
 
             Scope (\_SB.PCI0)
             {
-                Device (B0D3)
+                Device (HDAU)
                 {
                     Name (_ADR, 0x00030000)  // _ADR: Address
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                        Return (Package()
+                        {
+                            "layout-id", Buffer() { 12, 0x00, 0x00, 0x00 },
+                            "hda-gfx", Buffer() { "onboard-1" },
+                        })
+                    }
                 }
 
                 Device (IGPU)
                 {
                     Name (_ADR, 0x00020000)  // _ADR: Address
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                        Return (Package()
+                        {
+                            "hda-gfx", Buffer() { "onboard-1" },
+                        })
+                    }
                 }
 
                 Device (B0D4)
@@ -9846,9 +9863,9 @@ RWAK (Arg0)
             Release (\_SB.PCI0.LPCB.EC.MUTX)
         }
 
-        If (LAnd (LNotEqual (And (\_SB.PCI0.B0D3.ABAR, 0xFFFFC004), 0xFFFFC004), LNotEqual (And (\_SB.PCI0.B0D3.ABAR, 0xFFFFC000), Zero)))
+        If (LAnd (LNotEqual (And (\_SB.PCI0.HDAU.ABAR, 0xFFFFC004), 0xFFFFC004), LNotEqual (And (\_SB.PCI0.HDAU.ABAR, 0xFFFFC000), Zero)))
         {
-            Store (\_SB.PCI0.B0D3.ABAR, \_SB.PCI0.B0D3.BARA)
+            Store (\_SB.PCI0.HDAU.ABAR, \_SB.PCI0.HDAU.BARA)
         }
 
         If (And (ICNF, 0x10))
