@@ -8886,30 +8886,6 @@ RWAK (Arg0)
             {
                 Store (Arg0, PMEE)
             }
-            
-            Method (_DSM, 4, NotSerialized)
-                {
-                    Store (Package (0x0c)
-                    {                        
-                        "built-in", 
-                        Buffer (One)
-                        {
-                            0x00
-                        }, 
-                        "layout-id", 
-                        Buffer (0x04)
-                        {
-                            0x0D, 0x00, 0x00, 0x00 //change Your Layout_Id Here
-                        }, 
-                       "PinConfigurations", 
-                       Buffer (0x00)
-                       {
-                           0x00
-                       }
-                    }, Local0)
-                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                    Return (Local0)
-                }
 
             Method (GPEH, 0, NotSerialized)
             {
@@ -8928,6 +8904,19 @@ RWAK (Arg0)
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW (0x0D, 0x04))
+            }
+            Method (_DSM, 4, NotSerialized)
+            {
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "AAPL,slot-name", Buffer() { "Built in" },
+                    "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },
+                    "device_type", Buffer() { "Audio Controller" },
+                    "built-in", Buffer() { 0x00 },
+                    "PinConfigurations", Buffer() { },
+                    "hda-gfx", Buffer() { "onboard-1" }
+                })
             }
         }
 
