@@ -1,4 +1,4 @@
-SATA/*
+/*
  * Intel ACPI Component Architecture
  * AML/ASL+ Disassembler version 20161210-64(RM)
  * Copyright (c) 2000 - 2016 Intel Corporation
