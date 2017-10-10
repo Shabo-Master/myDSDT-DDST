@@ -50,7 +50,7 @@ DefinitionBlock ("", "SSDT", 2, "Ther_R", "Ther_Rvp", 0x00001000)
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.LPCB.H_EC.PENV, IntObj)
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (AC0F, FieldUnitObj)
     External (AC1F, FieldUnitObj)

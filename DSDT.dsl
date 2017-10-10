@@ -95,7 +95,7 @@ DefinitionBlock ("", "DSDT", 2, "DELL  ", "QA09   ", 0x01072009)
     External (_SB_.PCI0.RP03.SCLK, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.RP04.SCLK, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.RP06.SCLK, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.DUAM, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unknown method, guessing 1 arguments
@@ -8914,7 +8914,7 @@ RWAK (Arg0)
             }
         }
 
-        Device (SAT0)
+        Device (SATA)
         {
             Name (_ADR, 0x001F0002)  // _ADR: Address
             Name (PRBI, Zero)
@@ -11117,7 +11117,7 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT0)
+    Scope (_SB.PCI0.SATA.PRT0)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -11148,7 +11148,7 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT1)
+    Scope (_SB.PCI0.SATA.PRT1)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -11200,7 +11200,7 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT2)
+    Scope (_SB.PCI0.SATA.PRT2)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -11252,7 +11252,7 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0.PRT3)
+    Scope (_SB.PCI0.SATA.PRT3)
     {
         Name (FDEV, Zero)
         Name (FDRP, Zero)
@@ -11361,7 +11361,7 @@ RWAK (Arg0)
         }
     }
 
-    Scope (_SB.PCI0.SAT0)
+    Scope (_SB.PCI0.SATA)
     {
         Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
         {
@@ -12079,7 +12079,7 @@ RWAK (Arg0)
 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1"
+                    "\\_SB.PCI0.SATA.PRT1"
                 }
             })
             Name (DEVX, Package (0x05)
@@ -12092,7 +12092,7 @@ RWAK (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     0xFFFFFFFF
                 }, 
 
@@ -12193,7 +12193,7 @@ RWAK (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     Zero, 
                     Package (0x02)
                     {
@@ -12209,7 +12209,7 @@ RWAK (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     Zero, 
                     Package (0x02)
                     {
@@ -12225,7 +12225,7 @@ RWAK (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     Zero, 
                     Package (0x02)
                     {
@@ -12241,7 +12241,7 @@ RWAK (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     Zero, 
                     Package (0x02)
                     {
@@ -12257,7 +12257,7 @@ RWAK (Arg0)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     Zero, 
                     Package (0x02)
                     {
@@ -12603,7 +12603,7 @@ RWAK (Arg0)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0", 
+                    "\\_SB.PCI0.SATA", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -12631,7 +12631,7 @@ RWAK (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT0", 
+                    "\\_SB.PCI0.SATA.PRT0", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -12659,7 +12659,7 @@ RWAK (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT1", 
+                    "\\_SB.PCI0.SATA.PRT1", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -12687,7 +12687,7 @@ RWAK (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT2", 
+                    "\\_SB.PCI0.SATA.PRT2", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -12715,7 +12715,7 @@ RWAK (Arg0)
 
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.SAT0.PRT3", 
+                    "\\_SB.PCI0.SATA.PRT3", 
                     Package (0x01)
                     {
                         Package (0x03)
@@ -13024,7 +13024,7 @@ RWAK (Arg0)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.SAT0.PRT1"
+                                            "\\_SB.PCI0.SATA.PRT1"
                                         }
                                     })
                                 }

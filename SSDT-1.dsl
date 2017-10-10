@@ -4,7 +4,7 @@
  * Copyright (c) 2000 - 2016 Intel Corporation
  * 
  * Disassembling to non-symbolic legacy ASL operators
- *
+ *SATA
  * Disassembly of SSDT-1.aml, Tue Oct  3 13:20:15 2017
  *
  * Original Table Header:
@@ -32,8 +32,8 @@ DefinitionBlock ("", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
-    External (_SB_.PCI0.SAT0, DeviceObj)
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA, DeviceObj)
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DSSP, IntObj)
     External (FHPP, IntObj)
@@ -75,7 +75,7 @@ DefinitionBlock ("", "SSDT", 1, "SataRe", "SataTabl", 0x00001000)
         }
     }
 
-    Scope (\_SB.PCI0.SAT0)
+    Scope (\_SB.PCI0.SATA)
     {
         Name (REGF, One)
         Method (_REG, 2, NotSerialized)  // _REG: Region Availability

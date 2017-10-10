@@ -35,7 +35,7 @@ DefinitionBlock ("", "SSDT", 2, "PmRef", "Cpu0Ist", 0x00003000)
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (MDBG, MethodObj)    // Imported: 1 Arguments
     External (PDC0, IntObj)

@@ -1,4 +1,4 @@
-/*
+SATA/*
  * Intel ACPI Component Architecture
  * AML/ASL+ Disassembler version 20161210-64(RM)
  * Copyright (c) 2000 - 2016 Intel Corporation
@@ -103,7 +103,7 @@ DefinitionBlock ("", "SSDT", 2, "DptfTa", "DptfTabl", 0x00001000)
     External (_SB_.PCI0.LPCB.H_EC.TSSR, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.MHBR, FieldUnitObj)
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (_TZ_.ETMD, IntObj)
     External (_TZ_.TZ00, UnknownObj)

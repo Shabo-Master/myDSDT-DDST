@@ -64,7 +64,7 @@ DefinitionBlock ("", "SSDT", 2, "SaSsdt", "SaSsdt ", 0x00003000)
     External (_SB_.PCI0.PEG1.PEGP, DeviceObj)
     External (_SB_.PCI0.PEG2, DeviceObj)
     External (_SB_.PCI0.PEG2.PEGP, DeviceObj)
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DSEN, FieldUnitObj)
     External (GPRW, MethodObj)    // 2 Arguments

@@ -58,7 +58,7 @@ DefinitionBlock ("", "SSDT", 1, "OptRef", "OptTabl", 0x00001000)
     External (_SB_.PCI0.PEG0.TGPC, BuffObj)
     External (_SB_.PCI0.RPG0, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.RPG1, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.SPG1, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DID1, FieldUnitObj)
